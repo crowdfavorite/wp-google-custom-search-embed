@@ -28,7 +28,7 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 		<div id="cse-search-form" style="width: 100%;"><?php _e('Loading', 'cfgcse'); ?></div>
 		<script src="<?php echo $protocol; ?>://www.google.com/jsapi" type="text/javascript"></script>
 		<script type="text/javascript"> 
-			google.load('search', '1', {language : 'en', style : google.loader.themes.ESPRESSO});
+			google.load('search', '1', {language : 'en'});
 			google.setOnLoadCallback(function() {
 				var customSearchOptions = <?php echo json_encode(self::$options); ?>;
 				var customSearchControl = new google.search.CustomSearchControl(
@@ -52,7 +52,8 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 		<div id="cse" style="width: 100%;"><?php _e('Loading', 'cfgcse'); ?></div>
 		<script src="<?php echo $protocol; ?>://www.google.com/jsapi" type="text/javascript"></script>
 		<script type="text/javascript"> 
-			google.load('search', '1', {language : 'en', style : google.loader.themes.ESPRESSO});
+			console.log(google.loader.themes);
+			google.load('search', '1', {language : 'en'});
 			google.setOnLoadCallback(function() {
 				var customSearchOptions = {};
 				<?php if (!empty(self::$options)) { ?>

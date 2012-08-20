@@ -23,6 +23,7 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 		$cse_id = get_option('_cf_gcse_engine_id', null);
 		$search_url = apply_filters('cf_gcse_search_url', home_url());
 		$protocol = is_ssl() ? 'https' : 'http';
+		ob_start();
 	?>
 		<div id="cse-search-form" style="width: 100%;"><?php _e('Loading', 'cfgcse'); ?></div>
 		<script src="<?php echo $protocol; ?>://www.google.com/jsapi" type="text/javascript"></script>
@@ -40,11 +41,13 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 			}, true);
 		</script>
 	<?php
+		return ob_get_clean();
 	}
 	
 	public static function onResultsShortcode($atts = array()) {
 		$cse_id = get_option('_cf_gcse_engine_id', null);
 		$protocol = is_ssl() ? 'https' : 'http';
+		ob_start();
 	?>
 		<div id="cse" style="width: 100%;"><?php _e('Loading', 'cfgcse'); ?></div>
 		<script src="<?php echo $protocol; ?>://www.google.com/jsapi" type="text/javascript"></script>
@@ -69,6 +72,7 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 			}, true);
 		</script>
  	<?php
+		return ob_get_clean();
 	}
 }
 

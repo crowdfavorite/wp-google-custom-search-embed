@@ -3,14 +3,7 @@
 load_plugin_textdomain('cfgcse');
 class CFGoogleCustomSearchEmbedAdmin {
 
-	public static function adminMenu() {
-		add_submenu_page('options-general.php', __('CF Google Search', 'cfgcse'),
-			__('CF Google Search', 'cfgcse'), 'manage_options', 'cf-google-custom-search',
-			'CFGoogleCustomSearchEmbedAdmin::adminPage'
-		);
-	}
-	
-	public static function adminPage() {
+	public static function adminInit() {
 		if (!empty($_POST['cf_google_custom_search_save']) &&
 			isset($_POST['cf_gcse_engine_id']) &&
 			check_admin_referer('gcse_save_options')
@@ -19,6 +12,16 @@ class CFGoogleCustomSearchEmbedAdmin {
 			wp_redirect($_SERVER['REQUEST_URI']);
 			die();
 		}
+	}
+
+	public static function adminMenu() {
+		add_submenu_page('options-general.php', __('CF Google Search', 'cfgcse'),
+			__('CF Google Search', 'cfgcse'), 'manage_options', 'cf-google-custom-search',
+			'CFGoogleCustomSearchEmbedAdmin::adminPage'
+		);
+	}
+	
+	public static function adminPage() {
 		$cse_id = get_option('_cf_gcse_engine_id', '');
 		?>
 <?php screen_icon(); ?><h1><?php echo __('CF Google Custom Search Engine Configuration', 'cfgcse'); ?></h1>
@@ -40,4 +43,5 @@ class CFGoogleCustomSearchEmbedAdmin {
 <?php
 	}
 }
+add_action('admin_init', 'CFGoogleCustomSearchEmbedAdmin::adminInit');
 add_action('admin_menu', 'CFGoogleCustomSearchEmbedAdmin::adminMenu');

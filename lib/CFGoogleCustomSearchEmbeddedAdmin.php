@@ -1,6 +1,5 @@
 <?php
 
-load_plugin_textdomain('cfgcse');
 class CFGoogleCustomSearchEmbedAdmin {
 
 	public static function adminInit() {
@@ -20,7 +19,7 @@ class CFGoogleCustomSearchEmbedAdmin {
 			'CFGoogleCustomSearchEmbedAdmin::adminPage'
 		);
 	}
-	
+
 	public static function adminPage() {
 		$cse_id = get_option('_cf_gcse_engine_id', '');
 		?>

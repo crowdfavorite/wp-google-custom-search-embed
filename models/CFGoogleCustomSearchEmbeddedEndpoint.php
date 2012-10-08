@@ -1,6 +1,5 @@
 <?php
 
-load_plugin_textdomain('cfgcse');
 if (!class_exists('CFGoogleCustomSearchEmbeddedEndpoint')) {
 class CFGoogleCustomSearchEmbeddedEndpoint {
 	public static $term;

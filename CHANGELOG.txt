@@ -1,6 +1,8 @@
 # 1.2.2
 
 - Adding README and CHANGELOG
+- Changed name of 'models' dir to 'lib'
+- Removed redundant code around loading textdomains
 
 # 1.2.1
 

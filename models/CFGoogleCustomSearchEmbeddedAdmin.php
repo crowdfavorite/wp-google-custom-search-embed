@@ -1,6 +1,5 @@
 <?php
 
-load_plugin_textdomain('cfgcse');
 class CFGoogleCustomSearchEmbedAdmin {
 
 	public static function adminInit() {

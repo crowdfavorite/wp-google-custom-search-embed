@@ -17,7 +17,7 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 		}
 		return $where;
 	}
-	
+
 	public static function onBoxShortcode($atts = array()) {
 		$cse_id = get_option('_cf_gcse_engine_id', null);
 		$search_url = apply_filters('cf_gcse_search_url', home_url());
@@ -26,7 +26,7 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 	?>
 		<div id="cse-search-form" style="width: 100%;"><?php _e('Loading', 'cfgcse'); ?></div>
 		<script src="<?php echo $protocol; ?>://www.google.com/jsapi" type="text/javascript"></script>
-		<script type="text/javascript"> 
+		<script type="text/javascript">
 			google.load('search', '1', {language : 'en'});
 			google.setOnLoadCallback(function() {
 				var customSearchOptions = <?php echo json_encode(self::$options); ?>;
@@ -42,7 +42,7 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 	<?php
 		return ob_get_clean();
 	}
-	
+
 	public static function onResultsShortcode($atts = array()) {
 		$cse_id = get_option('_cf_gcse_engine_id', null);
 		$protocol = is_ssl() ? 'https' : 'http';
@@ -50,7 +50,7 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 	?>
 		<div id="cse" style="width: 100%;"><?php _e('Loading', 'cfgcse'); ?></div>
 		<script src="<?php echo $protocol; ?>://www.google.com/jsapi" type="text/javascript"></script>
-		<script type="text/javascript"> 
+		<script type="text/javascript">
 			google.load('search', '1', {language : 'en'});
 			google.setOnLoadCallback(function() {
 				var customSearchOptions = {};

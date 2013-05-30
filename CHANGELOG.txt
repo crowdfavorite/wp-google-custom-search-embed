@@ -1,5 +1,9 @@
 # CF Google Custom Search Embed CHANGELOG
 
+## 1.2.3
+
+- Added a filter for themes to hook in to programmatically disable google search as needed.
+
 ## 1.2.2
 
 - Adding README and CHANGELOG

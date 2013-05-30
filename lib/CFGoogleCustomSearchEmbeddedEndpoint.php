@@ -9,7 +9,8 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 		global $wp_the_query;
 		// compare query to wp_the_query to see if it is main. This is for compatibility prior to 3.3
 		// 3.3+ use is_main_query() instead
-		if ($query === $wp_the_query && is_search() && !is_admin()) {
+		$google_search_powered = apply_filters('cf_gcse_powered', ($query === $wp_the_query && is_search() && !is_admin()), $query, $wp_the_query);
+		if ($google_search_powered) {
 			remove_filter('posts_where', 'CFGoogleCustomSearchEmbeddedEndpoint::onSearch');
 			self::$term = get_query_var('s');
 			$where = 'WHERE 1 = 0 ';

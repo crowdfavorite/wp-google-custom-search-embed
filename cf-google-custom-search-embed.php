@@ -3,7 +3,7 @@
 Plugin Name: CF Google Custom Search (Embedded)
 Plugin URI:
 Description: Replaces WordPress search, providing search box information and results page options.
-Version: 1.2.2
+Version: 1.2.3
 Author: Crowd Favorite
 Author URI: http://crowdfavorite.com/
 */

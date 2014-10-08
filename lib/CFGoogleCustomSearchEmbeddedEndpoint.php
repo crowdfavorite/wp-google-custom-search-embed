@@ -13,7 +13,7 @@ class CFGoogleCustomSearchEmbeddedEndpoint {
 		if ($google_search_powered) {
 			remove_filter('posts_where', 'CFGoogleCustomSearchEmbeddedEndpoint::onSearch');
 			self::$term = get_query_var('s');
-			$where = 'WHERE 1 = 0 ';
+			$where = 'AND 1 = 0 ';
 			self::$options = apply_filters('cf_gcse_options', self::$options);
 		}
 		return $where;
